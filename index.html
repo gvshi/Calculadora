@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Calculadora</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="estilo.css" type="text/css">   
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+    
+<body>
+
+    <input name="display" value="" id="display" disabled>
+    <input type="button" value="±" id="±" onclick="mostrar('±')">
+    <input type="button" value="(" id="i" onclick="mostrar('(')">
+    <input type="button" value=")" id="d" onclick="mostrar(')')">
+    <input type="button" value="☆" id="☆" onclick="acordeon()">
+    <input type="button" value="7" id="siete" onclick="mostrar('7')">
+    <input type="button" value="8" id="ocho" onclick="mostrar('8')">
+    <input type="button" value="9" id="nueve" onclick="mostrar('9')">
+    <input type="button" value="÷" id="division" onclick="mostrar('/')">
+    <input type="button" value="4" id="cuatro" onclick="mostrar('4')">
+    <input type="button" value="5" id="cinco" onclick="mostrar('5')">
+    <input type="button" value="6" id="seis" onclick="mostrar('6')">
+    <input type="button" value="x" id="multiplicacion" onclick="mostrar('*')">
+    <input type="button" value="1" id="uno" onclick="mostrar('1')">
+    <input type="button" value="2" id="dos" onclick="mostrar('2')">
+    <input type="button" value="3" id="tres" onclick="mostrar('3')">
+    <input type="button" value="-" id="resta" onclick="mostrar('-')">
+    <input type="button" value="0" id="cero" onclick="mostrar('0')">
+    <input type="button" value="." id="punto" onclick="mostrar('.')">
+    <input type="button" value="%" id="porcentaje" onclick="mostrar('%')">
+    <input type="button" value="+" id="suma" onclick="mostrar('+')">
+    <input type="button" value="C" id="C" onclick="mostrar('C')">
+    <input type="button" value="=" id="igual" onclick="resultado()">
+    
+<script>
+   var box = document.getElementById('display');
+    
+function mostrar(x){
+   
+   box.value += x;
+  
+  if(x=='C'){
+    box.value='0';
+  } 
+}
+
+    function resultado(){
+        x=box.value;
+        x=eval(x);
+        box.value=x;
+    }
+    
+    function acordeon(){
+        if(box.value=='0007'){
+            window.location.assign('acordeon.html');
+        }
+    }
+</script>
+    
+</body>
+</html>

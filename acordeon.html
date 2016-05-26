@@ -1,0 +1,150 @@
+<html>
+    <head>
+    <tittle>ACORDEON</tittle>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no"> 
+        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+    </head>
+    
+    
+    <body>        
+        <nav>
+            <h1>ACORDEON</h1>
+        </nav>  
+                    
+        
+        
+        <div class="contenedor" id="contenedor-acordeon">
+                        
+            <div class="acordeon" >
+                <input type="text" placeholder="Agrega tu acordeon aquí..." id="agregar-acordeon">
+                <input type="button" onclick="guardarA()" value="+" id="button">
+            </div>
+            
+            <input name="display" value="" id="display" disabled>
+        </div>
+        
+        <script>
+            function guardarA(){
+           texto = document.getElementById('agregar-acordeon').value;
+           localStorage.setItem('texto', texto);
+           var mostrar = document.getElementById('display');
+    
+                mostrar.value =localStorage.getItem('texto');
+       }
+            
+               window.addEventListener('load',cargada,true);
+        
+            function cargada(){
+                guardado=localStorage.getItem('texto');
+                
+                contenedorGuardado=document.getElementById('contenedor-acordeon');
+                contenedorGuardado.innerHTML += "<div class='acordeon'><p>"+guardado+"</p></div>"                
+                    
+                
+            }
+        </script>
+        <style>
+        /*Reseteo de estilos*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav{
+    width: 100%;
+    height: 50px;
+    background: gray;
+    border-bottom: 1px solid darkgray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+
+nav h1{
+    
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+    box-sizing: border-box;
+    font-weight: 300;        
+}
+
+
+
+.contenedor{
+    float: left;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    background: #DFDFDF;
+    height: 100%;    
+}
+            
+.acordeon{
+    float: left;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 3px;
+    height: 4px;
+    background: #fff;
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,.2);
+    margin-top: 20px;
+    height: 50px;
+}
+
+.acordeon input{
+    height: 40px;
+    width: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    float: left;
+    background: #F5F5F5;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+#button{
+    height: 40px;
+    color: black;
+    font-size: 200%;
+    width: 15%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    float: left;
+    background: gray;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    
+}            
+#display{
+    float: left;
+    text-align: center;
+    color: #black;
+    width: 100%;
+    height: 25%;
+    background: white;
+    border-right: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
+    border-left: 1px solid #DFDFDF;
+    border-top: 10px solid #DFDFDF;
+    box-sizing: border-box; 
+}
+        </style>
+      </body>    
+</html>
